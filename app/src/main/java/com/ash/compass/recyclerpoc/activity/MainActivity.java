@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements IOnSwipe {
     private void setData() {
         for (int i=0;i<15;i++) {
             ItemModel itemModel = new ItemModel();
-            itemModel.setText("Lead "+i);
+            itemModel.setText("Item "+i);
             itemModel.setItem(true);
             itemModel.setUndo(false);
             itemModel.setUndoIgnore(false);
