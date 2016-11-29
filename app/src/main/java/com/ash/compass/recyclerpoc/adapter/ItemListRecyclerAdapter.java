@@ -84,20 +84,13 @@ public class ItemListRecyclerAdapter extends RecyclerView.Adapter<ItemListRecycl
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
                 try {
-
                     itemList.get(adapterPosition).setUndo(true);
                     itemList.get(adapterPosition).setItem(false);
                     itemList.get(adapterPosition).setUndoIgnore(false);
-                } catch (Exception e) {
-                }
-                try {
                     holder.itemLayout.setVisibility(View.GONE);
                     holder.undoignoreLayout.setVisibility(View.GONE);
                     holder.undoLayout.setVisibility(View.VISIBLE);
-                    holder.undoLayout.startAnimation(inFromRightAnimation());
-                    itemList.get(adapterPosition).setUndo(true);
-                    itemList.get(adapterPosition).setItem(false);
-                    itemList.get(adapterPosition).setUndoIgnore(false);
+                    holder.undoLayout.startAnimation(inFromRightAnimation());  
                 } catch (Exception e) {
 
                 }
@@ -126,21 +119,16 @@ public class ItemListRecyclerAdapter extends RecyclerView.Adapter<ItemListRecycl
             @Override
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
+                
                 try {
+                    itemList.get(adapterPosition).setUndoIgnore(false);
                     itemList.get(adapterPosition).setUndo(false);
                     itemList.get(adapterPosition).setItem(true);
-                    itemList.get(adapterPosition).setUndoIgnore(false);
-                } catch (Exception e) {
-                }
-
-                try {
                     holder.itemLayout.setVisibility(View.VISIBLE);
                     holder.undoLayout.setVisibility(View.GONE);
                     holder.undoignoreLayout.setVisibility(View.GONE);
                     holder.undoLayout.startAnimation(outToLeftAnimation());
-                    itemList.get(adapterPosition).setUndo(false);
-                    itemList.get(adapterPosition).setItem(true);
-                    itemList.get(adapterPosition).setUndoIgnore(false);
+                    
                 } catch (Exception e) {
                 }
                 if (adapterPosition != RecyclerView.NO_POSITION) {
@@ -160,21 +148,16 @@ public class ItemListRecyclerAdapter extends RecyclerView.Adapter<ItemListRecycl
             @Override
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
+                
                 try {
-
-                    itemList.get(adapterPosition).setUndo(false);
+                     itemList.get(adapterPosition).setUndo(false);
                     itemList.get(adapterPosition).setItem(false);
                     itemList.get(adapterPosition).setUndoIgnore(true);
-                } catch (Exception e) {
-                }
-                try {
                     holder.itemLayout.setVisibility(View.GONE);
                     holder.undoLayout.setVisibility(View.GONE);
                     holder.undoignoreLayout.setVisibility(View.VISIBLE);
                     holder.undoignoreLayout.startAnimation(inFromLeftAnimation());
-                    itemList.get(adapterPosition).setUndo(false);
-                    itemList.get(adapterPosition).setItem(false);
-                    itemList.get(adapterPosition).setUndoIgnore(true);
+                   
                 } catch (Exception e) {
 
                 }
@@ -203,22 +186,16 @@ public class ItemListRecyclerAdapter extends RecyclerView.Adapter<ItemListRecycl
         holder.undoIgnore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int adapterPosition = holder.getAdapterPosition();
+                int adapterPosition = holder.getAdapterPosition();             
                 try {
                     itemList.get(adapterPosition).setUndo(false);
                     itemList.get(adapterPosition).setItem(true);
                     itemList.get(adapterPosition).setUndoIgnore(false);
-                } catch (Exception e) {
-                }
-
-                try {
                     holder.itemLayout.setVisibility(View.VISIBLE);
                     holder.undoLayout.setVisibility(View.GONE);
                     holder.undoignoreLayout.setVisibility(View.GONE);
                     holder.undoignoreLayout.startAnimation(outToRightAnimation());
-                    itemList.get(adapterPosition).setUndo(false);
-                    itemList.get(adapterPosition).setItem(true);
-                    itemList.get(adapterPosition).setUndoIgnore(false);
+                    
                 } catch (Exception e) {
                 }
                 if (adapterPosition != RecyclerView.NO_POSITION) {
